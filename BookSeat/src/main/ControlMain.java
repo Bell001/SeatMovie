@@ -39,13 +39,19 @@ public class ControlMain {
 			} while(Confirm != 'Y');
 			System.out.println("Thank you for Setting!!");
 		}else if(Confirm == 'A'){
-			NumSeat = "10";
-			NumUser = "100";
+			NumSeat = "20";
+			NumUser = "5";
 			NumTheater = "5";
 			RunnableAuto R1 = new RunnableAuto("Start-AutoMode");
-			//RunnableAuto R2 = new RunnableAuto("Start-AutoMode");
-			//R2.start();
+			RunnableAuto R2 = new RunnableAuto("Start-AutoMode");
+			RunnableAuto R3 = new RunnableAuto("Start-AutoMode");
+			RunnableAuto R4 = new RunnableAuto("Start-AutoMode");
+			RunnableAuto R5 = new RunnableAuto("Start-AutoMode");
 		    R1.start();
+			R2.start();
+		    R3.start();
+			R4.start();
+		    R5.start();
 		} 
 		
 	}
