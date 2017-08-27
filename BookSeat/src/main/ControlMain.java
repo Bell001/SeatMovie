@@ -2,6 +2,8 @@ package main;
 
 import main.Theater;
 import main.User;
+
+import java.util.Random;
 import java.util.Scanner;
 import main.ThreadMain;
 
@@ -11,6 +13,7 @@ public class ControlMain {
 	static String NumUser ;
 	static String NumTheater ;
 	static char Confirm;
+	static Random ran = new Random();
 	
 	public static void main(String[] args){
 		
@@ -39,14 +42,30 @@ public class ControlMain {
 			} while(Confirm != 'Y');
 			System.out.println("Thank you for Setting!!");
 		}else if(Confirm == 'A'){
+			
 			NumSeat = "20";
 			NumUser = "5";
 			NumTheater = "5";
-			RunnableAuto R1 = new RunnableAuto("Start-AutoMode");
-			RunnableAuto R2 = new RunnableAuto("Start-AutoMode");
-			RunnableAuto R3 = new RunnableAuto("Start-AutoMode");
-			RunnableAuto R4 = new RunnableAuto("Start-AutoMode");
-			RunnableAuto R5 = new RunnableAuto("Start-AutoMode");
+			User use = new User(NumUser);
+			Theater aTheater = new Theater(NumTheater);
+		
+	
+        	int NumBook = ran.nextInt(5);
+			int NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
+			
+			RunnableAuto R1 = new RunnableAuto("Start-AutoMode",use,aTheater,0,NumMovie,NumBook);
+			NumBook = ran.nextInt(5);
+			NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
+			RunnableAuto R2 = new RunnableAuto("Start-AutoMode",use,aTheater,1,NumMovie,NumBook);
+			NumBook = ran.nextInt(5);
+			NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
+			RunnableAuto R3 = new RunnableAuto("Start-AutoMode",use,aTheater,2,NumMovie,NumBook);
+			NumBook = ran.nextInt(5);
+			NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
+			RunnableAuto R4 = new RunnableAuto("Start-AutoMode",use,aTheater,3,NumMovie,NumBook);
+			NumBook = ran.nextInt(5);
+			NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
+			RunnableAuto R5 = new RunnableAuto("Start-AutoMode",use,aTheater,4,NumMovie,NumBook);
 		    R1.start();
 			R2.start();
 		    R3.start();
