@@ -10,7 +10,7 @@ class ThreadMain implements Runnable {
 		   private Thread t;
 		   private String threadName;
 		   public int timeupdate =0;
-//   Integer[] time = new Integer[Integer.parseInt(ControlMain.NumUser)];
+
 		   User use;
 		   Theater aTheater;
 		   int x;
@@ -46,13 +46,8 @@ class ThreadMain implements Runnable {
         				continue;
         			} else {
         				aTheater.AllTheater[NumMovie] -=  NumBook+1;
-        			}
-        			
-//        			if(use.UserStatus[x][0] == 2){
-//        				System.out.print("Sorry, User: "+(x+1)+" already book last minute."+'\n');
-//        				
-//        			}
-        		
+        			}    			
+
         				System.out.print("Wait Process by " +"User: " + (x+1)+" Movie: " + (NumMovie+1) + " Book: " + (NumBook+1) + " Now Arrival : " +SeatA_now+'\n');
         				
         				Thread.sleep(delay);
@@ -92,43 +87,5 @@ class ThreadMain implements Runnable {
 		   }
 		   
 }
-
-//class RunnableManual implements Runnable {
-//	   private Thread t; 
-//	   private String threadName;
-//	   
-//	   RunnableManual(String name) {
-//	      threadName = name;
-//	      System.out.println("Creating " +  threadName );
-//	   }
-//	   
-//	   public void run() {
-//	      System.out.println("Running " +  threadName );
-//	      try {
-//	         for(int i = 4; i > 0; i--) {
-//	            System.out.println("Thread: " + threadName + ", " + i);
-//	            // Let the thread sleep for a while.
-//	            Thread.sleep(50);
-//	         }
-//	      }catch (InterruptedException e) {
-//	         System.out.println("Thread " +  threadName + " interrupted.");
-//	      }
-//	      System.out.println("Thread " +  threadName + " exiting.");
-//	   }
-//	   
-//	   public void start () {
-//	      System.out.println("Starting " +  threadName );
-//	      if (t == null) {
-//	         t = new Thread (this, threadName);
-//	         t.start ();
-//	      }
-//	   }
-//}
-
-//public class ThreadMain {
-//
-//		   public static void main(String args[]) {
-//	      
-//		   }   
 
 

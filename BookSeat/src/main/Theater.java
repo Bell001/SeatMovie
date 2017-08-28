@@ -12,15 +12,5 @@ public class Theater {
 		 }
 	 }
 	 
-//	 char IsFull(int Num){
-//		 
-//		 if(AllTheater[Num] == 0){
-//		 	 return 'F';
-//		 } else {
-//			 AllTheater[Num] -= 1;
-//			 return 'N';
-//		 }
-//	 }
-	 
 	 
 }
