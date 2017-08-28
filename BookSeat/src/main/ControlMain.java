@@ -21,11 +21,8 @@ public class ControlMain {
 		
 		System.out.println("Welcome to KSS Theater, Next is a setting option."+'\n');
 		
-		do{
-			System.out.println("Select System: Auto or Manual(A/M)");
-			Confirm = in.next().charAt(0);
-			
-		}while(!(Confirm == 'A' || Confirm == 'M'));
+		Confirm = 'A';
+		
 		if(Confirm == 'M'){
 			do{
 			System.out.println("Enter Number of Seat per Movie : ");
