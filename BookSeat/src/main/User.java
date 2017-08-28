@@ -13,17 +13,17 @@ public class User {
 		  }
 	 }
 	 
-	 public char Checkstatus(int Num){
-		 if(UserStatus[Num][0] == 0 ){
-			 return 'N'; //none
-		 } else if(UserStatus[Num][0] == 1){
-			 return 'W'; //wait
-		 } else if(UserStatus[Num][0] == 2){
-			 return 'B'; //Book
-		 } else {
-			 return 'F';
-		 }
-	 }
+//	 public char Checkstatus(int Num){
+//		 if(UserStatus[Num][0] == 0 ){
+//			 return 'N'; //none
+//		 } else if(UserStatus[Num][0] == 1){
+//			 return 'W'; //wait
+//		 } else if(UserStatus[Num][0] == 2){
+//			 return 'B'; //Book
+//		 } else {
+//			 return 'F';
+//		 }
+//	 }
 	 
 //	 public void Cancel(int Num){
 //		 UserStatus[Num] = 0;	 

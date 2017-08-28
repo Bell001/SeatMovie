@@ -21,8 +21,13 @@ public class ControlMain {
 		
 		System.out.println("Welcome to KSS Theater, Next is a setting option."+'\n');
 		
-		Confirm = 'A';
+//		do{
+//			System.out.println("Select System: Auto or Manual(A/M)");
+//			Confirm = in.next().charAt(0);
+//			
+//		}while(!(Confirm == 'A' || Confirm == 'M'));
 		
+		Confirm = 'A';
 		if(Confirm == 'M'){
 			do{
 			System.out.println("Enter Number of Seat per Movie : ");
@@ -50,19 +55,19 @@ public class ControlMain {
         	int NumBook = ran.nextInt(5);
 			int NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
 			
-			RunnableAuto R1 = new RunnableAuto("Start-AutoMode",use,aTheater,0);
+			ThreadMain  R1 = new ThreadMain ("Start-AutoMode",use,aTheater,0);
 			NumBook = ran.nextInt(5);
 			NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
-			RunnableAuto R2 = new RunnableAuto("Start-AutoMode",use,aTheater,1);
+			ThreadMain  R2 = new ThreadMain ("Start-AutoMode",use,aTheater,1);
 			NumBook = ran.nextInt(5);
 			NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
-			RunnableAuto R3 = new RunnableAuto("Start-AutoMode",use,aTheater,2);
+			ThreadMain  R3 = new ThreadMain ("Start-AutoMode",use,aTheater,2);
 			NumBook = ran.nextInt(5);
 			NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
-			RunnableAuto R4 = new RunnableAuto("Start-AutoMode",use,aTheater,3);
+			ThreadMain  R4 = new ThreadMain ("Start-AutoMode",use,aTheater,3);
 			NumBook = ran.nextInt(5);
 			NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
-			RunnableAuto R5 = new RunnableAuto("Start-AutoMode",use,aTheater,4);
+			ThreadMain  R5 = new ThreadMain ("Start-AutoMode",use,aTheater,4);
 		    R1.start();
 			R2.start();
 		    R3.start();
