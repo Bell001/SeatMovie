@@ -6,6 +6,7 @@ import main.ControlMain;
 import java.util.Random;
 	
 class RunnableAuto implements Runnable {
+	
 		   private Thread t;
 		   private String threadName;
 		   public int timeupdate =0;
@@ -18,13 +19,11 @@ class RunnableAuto implements Runnable {
 		   Random ran = new Random();
 
 		   
-		   RunnableAuto(String name,User user,Theater theater,int numuser,int Movie,int Book) {
+		   RunnableAuto(String name,User user,Theater theater,int numuser) {
 		      threadName = name+" "+(numuser+1);
 		      use = user;
 		      aTheater = theater;
 		      x =  numuser;
-		      NumMovie = Movie;
-		      NumBook = Book;
 		      System.out.println("Creating " +  threadName );
 		   }
 		   
@@ -33,20 +32,26 @@ class RunnableAuto implements Runnable {
 		      System.out.println("Running " +  threadName );
 		      try {
 		    	
- 
-        			int delay = ran.nextInt(4000);
-        			int decide = ran.nextInt(2);
+		    	  	while(true){
+		    	  		int delay = ran.nextInt(4000);
+		    	  		int decide = ran.nextInt(2);
+		    	  		int NumBook = ran.nextInt(5);
+		    	  		int NumMovie = ran.nextInt(Integer.parseInt(ControlMain.NumTheater));
+        			
         			
         			int SeatA_now = aTheater.AllTheater[NumMovie];
         		
         			if(SeatA_now == 0 || !(SeatA_now - (NumBook+1) >= 0)){
         				System.out.print("Sorry, User: "+(x+1)+" Movie "+(NumMovie+1)+" is full now."+'\n');
+        				continue;
+        			} else {
+        				aTheater.AllTheater[NumMovie] -=  NumBook+1;
         			}
         			
-        			if(use.UserStatus[x][0] == 2){
-        				System.out.print("Sorry, User: "+(x+1)+" already book last minute."+'\n');
-        				
-        			}
+//        			if(use.UserStatus[x][0] == 2){
+//        				System.out.print("Sorry, User: "+(x+1)+" already book last minute."+'\n');
+//        				
+//        			}
         		
         				System.out.print("Wait Process by " +"User: " + (x+1)+" Movie: " + (NumMovie+1) + " Book: " + (NumBook+1) + " Now Arrival : " +SeatA_now+'\n');
         				
@@ -54,20 +59,22 @@ class RunnableAuto implements Runnable {
         				if(delay >= 3000){
         					System.out.print("Sorry, User: "+(x+1)+" be Time out now!!! "+'\n');
         				} else if(decide == 0){
+        					aTheater.AllTheater[NumMovie] +=  NumBook+1;
         					System.out.print("Cancle by " +"User: " + (x+1)+" Movie: " + (NumMovie+1) + " Book: " + (NumBook+1) + '\n'); 
 	        			} else if(decide == 1){		
 	        				use.UserStatus[x][0] = 2;
 	            			use.UserStatus[x][1] = NumBook+1;
 	            			use.UserStatus[x][2] = NumMovie+1;
 	            			if(aTheater.AllTheater[NumMovie] - use.UserStatus[x][1] >= 0){
-	            				aTheater.AllTheater[NumMovie] -= use.UserStatus[x][1];
+	            				//aTheater.AllTheater[NumMovie] -= use.UserStatus[x][1];
 	            				System.out.print("Book by " +"User: " + (x+1)+" Movie: " + use.UserStatus[x][2] + " Book: " +use.UserStatus[x][1] + " Seat saw: " + SeatA_now+ " Now free: "+ aTheater.AllTheater[NumMovie]+'\n'); 
 	            			} else {
 	            				System.out.print("Sorry, User: "+(x+1)+" Movie "+(NumMovie+1)+" is full now. "+'\n');
 	            			}
 	        			} 
         			
-        			Thread.sleep(100);
+        				Thread.sleep(100);
+		    	  	}
                 	
                 
 		      }catch (InterruptedException e) {

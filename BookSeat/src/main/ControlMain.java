@@ -53,19 +53,19 @@ public class ControlMain {
         	int NumBook = ran.nextInt(5);
 			int NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
 			
-			RunnableAuto R1 = new RunnableAuto("Start-AutoMode",use,aTheater,0,NumMovie,NumBook);
+			RunnableAuto R1 = new RunnableAuto("Start-AutoMode",use,aTheater,0);
 			NumBook = ran.nextInt(5);
 			NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
-			RunnableAuto R2 = new RunnableAuto("Start-AutoMode",use,aTheater,1,NumMovie,NumBook);
+			RunnableAuto R2 = new RunnableAuto("Start-AutoMode",use,aTheater,1);
 			NumBook = ran.nextInt(5);
 			NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
-			RunnableAuto R3 = new RunnableAuto("Start-AutoMode",use,aTheater,2,NumMovie,NumBook);
+			RunnableAuto R3 = new RunnableAuto("Start-AutoMode",use,aTheater,2);
 			NumBook = ran.nextInt(5);
 			NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
-			RunnableAuto R4 = new RunnableAuto("Start-AutoMode",use,aTheater,3,NumMovie,NumBook);
+			RunnableAuto R4 = new RunnableAuto("Start-AutoMode",use,aTheater,3);
 			NumBook = ran.nextInt(5);
 			NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
-			RunnableAuto R5 = new RunnableAuto("Start-AutoMode",use,aTheater,4,NumMovie,NumBook);
+			RunnableAuto R5 = new RunnableAuto("Start-AutoMode",use,aTheater,4);
 		    R1.start();
 			R2.start();
 		    R3.start();
