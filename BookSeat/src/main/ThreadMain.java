@@ -48,7 +48,7 @@ class ThreadMain implements Runnable {
         				aTheater.AllTheater[NumMovie] -=  NumBook+1;
         			}    			
 
-        				System.out.print("Wait Process by " +"User: " + (x+1)+" Movie: " + (NumMovie+1) + " Book: " + (NumBook+1) + " Now Arrival : " +SeatA_now+'\n');
+        				System.out.print("Wait Process by " +"User: " + (x+1)+" Movie: " + (NumMovie+1) + " Book: " + (NumBook+1) + " Seat saw: " +SeatA_now+ " Seat lock : "+aTheater.AllTheater[NumMovie]+'\n');
         				
         				Thread.sleep(delay);
         				if(delay >= 3000){
@@ -60,12 +60,7 @@ class ThreadMain implements Runnable {
 	        				use.UserStatus[x][0] = 2;
 	            			use.UserStatus[x][1] = NumBook+1;
 	            			use.UserStatus[x][2] = NumMovie+1;
-	            			if(aTheater.AllTheater[NumMovie] - use.UserStatus[x][1] >= 0){
-	            				//aTheater.AllTheater[NumMovie] -= use.UserStatus[x][1];
-	            				System.out.print("Book by " +"User: " + (x+1)+" Movie: " + use.UserStatus[x][2] + " Book: " +use.UserStatus[x][1] + " Seat saw: " + SeatA_now+ " Now free: "+ aTheater.AllTheater[NumMovie]+'\n'); 
-	            			} else {
-	            				System.out.print("Sorry, User: "+(x+1)+" Movie "+(NumMovie+1)+" is full now. "+'\n');
-	            			}
+	            			System.out.print("Book by " +"User: " + (x+1)+" Movie: " + use.UserStatus[x][2] + " Book: " +use.UserStatus[x][1] + " Seat saw: " + SeatA_now+ " Now free: "+ aTheater.AllTheater[NumMovie]+'\n');            		
 	        			} 
         			
         				Thread.sleep(100);
