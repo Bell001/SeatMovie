@@ -40,27 +40,29 @@ class ThreadMain implements Runnable {
         			
         			
         			int SeatA_now = aTheater.AllTheater[NumMovie];
-        		
+        		    int temp = 0;
+        			
         			if(SeatA_now == 0 || !(SeatA_now - (NumBook+1) >= 0)){
-        				System.out.print("Sorry, User: "+(x+1)+" Movie "+(NumMovie+1)+" is full now."+'\n');
+        				System.out.print("Status: FULL" + " User: "+(x+1)+'\n'+"Movie "+(NumMovie+1)+'\n');
         				continue;
         			} else {
         				aTheater.AllTheater[NumMovie] -=  NumBook+1;
         			}    			
 
-        				System.out.print("Wait Process by " +"User: " + (x+1)+" Movie: " + (NumMovie+1) + " Book: " + (NumBook+1) + " Seat saw: " +SeatA_now+ " Seat lock : "+aTheater.AllTheater[NumMovie]+'\n');
+        				System.out.print("Status: WAIT "+"User: " + (x+1)+'\n'+"Movie: " + (NumMovie+1) + " Book: " + (NumBook+1) + " S.Now: " +SeatA_now+ " S.Beforelock : "+aTheater.AllTheater[NumMovie]+'\n');
         				
         				Thread.sleep(delay);
         				if(delay >= 3000){
-        					System.out.print("Sorry, User: "+(x+1)+" be Time out now!!! "+'\n');
+        					System.out.print("Status: TIMEOUT "+ "User: "+(x+1)+ '\n' +"Movie: " + (NumMovie+1) + " Book: " + (NumBook+1)+'\n');
         				} else if(decide == 0){
-        					aTheater.AllTheater[NumMovie] +=  NumBook+1;
-        					System.out.print("Cancle by " +"User: " + (x+1)+" Movie: " + (NumMovie+1) + " Book: " + (NumBook+1) + '\n'); 
+        					aTheater.AllTheater[NumMovie] += NumBook+1; 
+        					System.out.print("Status: CANCLE "+"User: "  + (x+1)+'\n'+"Movie: " + (NumMovie+1) + " Book: " + (NumBook+1) + " S.Now: "+aTheater.AllTheater[NumMovie]+'\n'); 
 	        			} else if(decide == 1){		
 	        				use.UserStatus[x][0] = 2;
 	            			use.UserStatus[x][1] = NumBook+1;
 	            			use.UserStatus[x][2] = NumMovie+1;
-	            			System.out.print("Book by " +"User: " + (x+1)+" Movie: " + use.UserStatus[x][2] + " Book: " +use.UserStatus[x][1] + " Seat saw: " + SeatA_now+ " Now free: "+ aTheater.AllTheater[NumMovie]+'\n');            		
+	            		
+	            			System.out.print("Status: BOOK " +"User: " + (x+1)+'\n'+"Movie: " + use.UserStatus[x][2] + " Book: " +use.UserStatus[x][1] + " S.Now: " + aTheater.AllTheater[NumMovie] +'\n');            		
 	        			} 
         			
         				Thread.sleep(100);
