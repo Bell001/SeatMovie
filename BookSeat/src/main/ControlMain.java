@@ -43,31 +43,27 @@ public class ControlMain {
 			System.out.println("Thank you for Setting!!");
 		}else if(Confirm == 'A'){
 			
-			ExecutorService executor = Executors.newFixedThreadPool(5);
-			
 			NumSeat = "20";
 			NumUser = "5";
 			NumTheater = "5";
 			User use = new User(NumUser);
 			Theater aTheater = new Theater(NumTheater);
 		
-			for(int i=0;i<5;i++){
 				int NumBook = ran.nextInt(5);
 				int NumMovie = ran.nextInt(Integer.parseInt(NumTheater));
-				executor.submit(new ThreadMain("Start-AutoMode",use,aTheater,i));
-				
-			}
 			
-			executor.shutdown();
-			System.out.println("All task submitted");
-			
-			try{
-				executor.awaitTermination(1, TimeUnit.DAYS);
+				ThreadMain R1 = new ThreadMain("Start-AutoMode",use,aTheater,0);
+				ThreadMain R2 = new ThreadMain("Start-AutoMode",use,aTheater,1);
+				ThreadMain R3 = new ThreadMain("Start-AutoMode",use,aTheater,2);
+				ThreadMain R4 = new ThreadMain("Start-AutoMode",use,aTheater,3);
+				ThreadMain R5 = new ThreadMain("Start-AutoMode",use,aTheater,4);
+			    
+				R1.start();
+				R2.start();
+				R3.start();
+				R4.start();
+				R5.start();	
 				
-			} catch (InterruptedException ignored){
-				
-			}
-			System.out.println("All task is Complete "); 
 		} 
 		
 	}
